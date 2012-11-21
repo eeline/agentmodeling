@@ -1,5 +1,7 @@
 package dao;
-
+/* TODO
+* Find a less horrifying way to manage these strings. 
+*/
 public abstract class SQLStrings {
 	static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
 	static final String PROTOCOL = "jdbc:derby";
