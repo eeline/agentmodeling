@@ -11,6 +11,7 @@ import java.util.List;
 
 import outputservice.OutputService;
 import outputservice.OutputType;
+import threadmanager.MethodNotYetImplemented;
 
 
 public class DAOHandler {
@@ -43,7 +44,8 @@ public class DAOHandler {
 		return connection.createStatement().executeQuery(SQLStrings.GET_RESULTS);
 	}
 	
-	@SuppressWarnings("unused")
+
+	@MethodNotYetImplemented
 	@Deprecated
 	private List<String> getProperties(){
 		//TODO Configure to properly use a Properties file loader.
@@ -73,14 +75,35 @@ public class DAOHandler {
 		statement.execute(SQLStrings.INIT_TABLE);
 		defaultStatement = connection.prepareStatement(SQLStrings.CREATE_ENTRY);
 	}
-	/** 
-	 * STATEMENTS SHOULD JUST BE THE DATA, I'LL DO THE REST OVER HERE THANKS BRO
-	 * @param sqlStatement
-	 * @throws SQLException 
-	 */
+	
+	@Deprecated
 	public void put(String sqlStatement) throws SQLException{
-		//TODO verify the input is not garbage? or just trust myself?
 		entries.add(sqlStatement);
+	}
+	
+	@MethodNotYetImplemented
+	@Deprecated
+	public void put(SQLEntry sqlEntry){
+		try {
+			sqlEntry.get(connection.prepareStatement(sqlEntry.getInitializtionSQL())).execute();
+			if(sqlEntry.get() == StatementPriority.ELEVATED)
+				connection.commit(); 
+			//TODO
+			/* include a notify that's heard here and ensures no new commits run until after this one does
+			ThreadService.push(new SQLTask(){
+				@Override
+				public void run() {
+					try {
+						connection.commit();
+					} catch (SQLException e) {
+						OutputService.push(e);
+					}	
+				}
+			});
+			 */
+		} catch (SQLException e) {
+			OutputService.push(e);
+		}
 	}
 	
 	private void push() throws SQLException{

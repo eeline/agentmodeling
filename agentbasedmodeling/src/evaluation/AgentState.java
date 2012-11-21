@@ -1,7 +1,7 @@
 package evaluation;
 /**
  * 
- * @author eugene
+ *
  * State check is important for evaluation.
  */
 public class AgentState {

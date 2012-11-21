@@ -4,7 +4,7 @@ import agentmanager.Message;
 
 /**
  * 
- * @author eugene
+ *
  * Designed to be rewritten with various tasks depending on model. 
  */
 

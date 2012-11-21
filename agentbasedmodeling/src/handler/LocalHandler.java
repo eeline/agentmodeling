@@ -11,7 +11,7 @@ import tasks.Name;
 import threadmanager.ThreadService;
 /**
  * 
- * @author eugene
+ * 
  * Also designed for easy rewrite, this returns an appropriate thread for the service to handle by referecing the Message object.
  */
 public class LocalHandler {

@@ -5,7 +5,7 @@ import agentmanager.Agent;
 import agentmanager.Message;
 /**
  * 
- * @author eugene
+ * 
  * Various tasks use this interface.
  */
 public interface Tasks {

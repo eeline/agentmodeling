@@ -10,7 +10,7 @@ import outputservice.OutputService;
 
 import dao.SQLTask;
 /** 
- * @author eugene
+ *
  * Executor service handles the Runnable tasks anonymously.
  * 
  */
@@ -36,6 +36,7 @@ public class ThreadService {
 		queue.execute(task);
 	}
 	
+	//TODO THINK OF A LESS GHETTO SOLUTION
 	public static void die(){
 		queue.shutdown();
 		try {
