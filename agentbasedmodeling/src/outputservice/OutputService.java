@@ -9,6 +9,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import dao.DAOHandler;
+import dao.SQLEntry;
 
 public class OutputService {
 	private static Logger logger;
@@ -28,18 +29,14 @@ public class OutputService {
 			case INFO:
 				logger.log(Level.INFO, output);
 			break;
-			case SQL:
-				try {
-					handler.put(output);
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					push(OutputType.ERROR, e.getMessage());
-				}
-			break;
 			default:
 				logger.log(Level.ERROR, "Called with uninitialized type");
 			break;
 		}
+	}
+	
+	public synchronized static void push(SQLEntry sqlEntry){
+		handler.put(sqlEntry);
 	}
 	
 	public static void push(SQLException e){
@@ -49,7 +46,11 @@ public class OutputService {
         logger.log(Level.ERROR, "\n  Message:    " + e.getMessage());
 	}
 
-	public static void set(Logger logger) {
+	/**
+	 * init() should be run before using output service or you will have lots of Fun And Exciting Exceptions!.
+	 * @param logger
+	 */
+	public static void init(Logger logger) {
 		OutputService.logger = logger;
 		handler =  DAOHandler.getInstance();
 	}	

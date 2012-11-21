@@ -81,8 +81,6 @@ public class DAOHandler {
 		entries.add(sqlStatement);
 	}
 	
-	@MethodNotYetImplemented
-	@Deprecated
 	public void put(SQLEntry sqlEntry){
 		try {
 			sqlEntry.get(connection.prepareStatement(sqlEntry.getInitializtionSQL())).execute();

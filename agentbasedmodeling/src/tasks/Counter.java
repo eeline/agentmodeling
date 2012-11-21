@@ -1,8 +1,7 @@
 package tasks;
 
-import outputservice.OutputService;
-import outputservice.OutputType;
 import handler.Task;
+import outputservice.OutputService;
 import agentmanager.Agent;
 import agentmanager.Message;
 
@@ -13,7 +12,7 @@ public class Counter implements Tasks {
 			public void run() {
 			
 				
-				OutputService.push(OutputType.SQL, this.agent.getName() + " " + this.message.getMessage());
+				OutputService.push(new GenericSQLEntry(this.agent.getName() + " " + this.message.getMessage()));
 				try {
 					this.prepNextTask();
 				} catch (InterruptedException e) {

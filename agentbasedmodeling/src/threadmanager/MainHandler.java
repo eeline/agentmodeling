@@ -12,7 +12,7 @@ public class MainHandler {
 	public static void start(){
 		
 		BasicConfigurator.configure();
-		OutputService.set(logger);
+		OutputService.init(logger);
 		new AgentInitialization().initialize(ThreadService.getInstance());
 	}
 	

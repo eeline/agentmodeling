@@ -1,8 +1,7 @@
 package tasks;
 
-import outputservice.OutputService;
-import outputservice.OutputType;
 import handler.Task;
+import outputservice.OutputService;
 import agentmanager.Agent;
 import agentmanager.Message;
 
@@ -11,7 +10,7 @@ public class Name implements Tasks {
 		return new Task(message, agent){
 			@Override
 			public void run() {
-				OutputService.push(OutputType.SQL, agent.getName() + " " + this.message.getMessage());
+				OutputService.push(new GenericSQLEntry(agent.getName() + " " + this.message.getMessage()));
 				try {
 					this.prepNextTask();
 				} catch (InterruptedException e) {

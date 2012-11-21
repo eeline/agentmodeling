@@ -1,5 +1,5 @@
 package outputservice;
 
 public enum OutputType {
-	SQL, ERROR, INFO, SQL_ERROR
+	ERROR, INFO, SQL_ERROR
 }
