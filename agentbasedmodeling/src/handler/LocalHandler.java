@@ -5,6 +5,7 @@ import outputservice.OutputType;
 import agentmanager.Agent;
 import agentmanager.Handler;
 import agentmanager.Message;
+import agentmanager.Task;
 import tasks.Counter;
 import tasks.Die;
 import tasks.Name;

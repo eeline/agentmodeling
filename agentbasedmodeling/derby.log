@@ -1,0 +1,10 @@
+----------------------------------------------------------------
+Tue Dec 11 16:27:03 EST 2012:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-013b-8bdd-22ed-000000ae2cd0 
+on database directory C:\Users\Hurricane1\Desktop\GitHub\modelingframework\agentmodeling\agentbasedmodeling\derbyDB  with class loader sun.misc.Launcher$AppClassLoader@ae000d 
+Loaded from file:/C:/Users/Hurricane1/.m2/repository/org/apache/derby/derby/10.9.1.0/derby-10.9.1.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_09-b05
+user.dir=C:\Users\Hurricane1\Desktop\GitHub\modelingframework\agentmodeling\agentbasedmodeling
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

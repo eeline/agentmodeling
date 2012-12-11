@@ -1,6 +1,6 @@
-package evaluation;
+package agentmanager;
 
-import agentmanager.Message;
+import evaluation.AgentState;
 
 public interface Evaluation {
 	public Message evaluate(Message message, AgentState state);

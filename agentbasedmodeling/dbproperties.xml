@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="DRIVER">org.apache.derby.jdbc.ClientDriver</entry>
+<entry key="DATABASE">derbyDB</entry>
+<entry key="PROTOCOL">jdbc:derby</entry>
+<entry key="FRAMEWORK">embedded</entry>
+<entry key="CREATE">true</entry>
+<entry key="LOCATION">jdbc:derby://localhost:1527/:derbyDB</entry>
+</properties>

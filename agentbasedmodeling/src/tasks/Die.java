@@ -1,9 +1,10 @@
 package tasks;
 
-import handler.Task;
 import outputservice.OutputService;
 import agentmanager.Agent;
 import agentmanager.Message;
+import agentmanager.Task;
+import agentmanager.Tasks;
 
 public class Die implements Tasks {
 	public Task getTask(Message message, Agent agent){

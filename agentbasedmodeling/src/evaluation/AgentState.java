@@ -5,16 +5,13 @@ package evaluation;
  * State check is important for evaluation.
  */
 public class AgentState {
-	private static int COUNT =0;
 	private final String name;
 	private int counter =0;
-	private final int die = 10;
 	private final int check_odd = 2;
 	
 	
 	public AgentState(){
-		AgentState.newAgent();
-		this.name = "Agent #" + AgentState.COUNT;
+		this.name = "Agent #" + Environment.getAgentCount();
 	}
 	public void increment(){
 		counter ++;
@@ -24,12 +21,8 @@ public class AgentState {
 		return this.name;
 	}
 	
-	private static void newAgent(){
-		AgentState.COUNT++;
-	}
-	
 	public boolean getDead(){
-		return die == counter;
+		return Environment.getLifespan() == counter;
 	}
 	
 	public boolean isEven(){

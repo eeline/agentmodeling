@@ -3,7 +3,12 @@ package outputservice;
 /**
  * set to use logger to minimize potential impact on other systems, can easily function with a HTTPServletResponse. 
  */
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
+import java.util.Properties;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -57,5 +62,17 @@ public class OutputService {
 	
 	public static void cleanup(){
 		handler.cleanup();
+	}
+	
+	public static Properties get(File file){
+		Properties properties = new Properties();
+		try(InputStream in = new FileInputStream(file)){
+			properties.loadFromXML(in);
+			return properties;
+		} catch (IOException e) {
+			push(OutputType.ERROR, e.getLocalizedMessage());
+		}
+		
+		return null;
 	}
 }

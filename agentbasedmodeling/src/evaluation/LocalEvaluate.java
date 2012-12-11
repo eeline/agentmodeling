@@ -1,13 +1,11 @@
 package evaluation;
 
+import agentmanager.Evaluation;
 import agentmanager.Message;
 
 /**
- * 
- *
  * Designed to be rewritten with various tasks depending on model. 
  */
-
 
 abstract public class LocalEvaluate {
 	public static Evaluation getEvaluator(){
@@ -19,8 +17,7 @@ abstract public class LocalEvaluate {
 				if(state.getDead())
 					message = new Message(Message.DIE); 
 				else
-					message = state.isEven() ? new Message(Message.COUNTER) : new Message(Message.NAME);
-					
+					message = state.isEven() ? new Message(Message.COUNTER) : new Message(Message.NAME);	
 				return message;
 			}
 		};

@@ -5,25 +5,23 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import outputservice.OutputService;
 import outputservice.OutputType;
-import threadmanager.MethodNotYetImplemented;
 
 
 public class DAOHandler {
+	private static SQLStrings SQL_STRINGS = new SQLStrings();
 	private static DAOHandler INSTANCE;
 	private static List<String> entries = new ArrayList<>();
 	private static Connection connection;
 	private static PreparedStatement defaultStatement;
-	
+
 	private DAOHandler(){		
 		try {
-			connection = DriverManager.getConnection(SQLStrings.PROTOCOL + ":derbyDB;create=true"
-					/*,new Properties("username", "password") -OR- ,getProperties()*/);
+			connection = DriverManager.getConnection(DAOHandler.SQL_STRINGS.getCONNECTION());
 			configure();
 		} catch (SQLException e) {
             OutputService.push(e);
@@ -43,15 +41,7 @@ public class DAOHandler {
 	private ResultSet get() throws SQLException {
 		return connection.createStatement().executeQuery(SQLStrings.GET_RESULTS);
 	}
-	
-
-	@MethodNotYetImplemented
-	@Deprecated
-	private List<String> getProperties(){
-		//TODO Configure to properly use a Properties file loader.
-		return new DBProperties().get();
-	}
-	
+	//TODO turn this from test code to real code. 
 	public void cleanup() {
 		try {
 			push();
@@ -69,10 +59,8 @@ public class DAOHandler {
 	}
 	
 	private void configure() throws SQLException, InstantiationException, IllegalAccessException, ClassNotFoundException{
-		Class.forName(SQLStrings.DRIVER).newInstance();
+		Class.forName(DAOHandler.SQL_STRINGS.getDRIVER());
 		connection.setAutoCommit(false); //lets user control pace of update
-		Statement statement = connection.createStatement();
-		statement.execute(SQLStrings.INIT_TABLE);
 		defaultStatement = connection.prepareStatement(SQLStrings.CREATE_ENTRY);
 	}
 	

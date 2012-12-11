@@ -1,8 +1,5 @@
-package tasks;
+package agentmanager;
 
-import handler.Task;
-import agentmanager.Agent;
-import agentmanager.Message;
 /**
  * 
  * 

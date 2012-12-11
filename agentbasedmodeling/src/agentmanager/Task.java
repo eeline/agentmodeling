@@ -1,7 +1,5 @@
-package handler;
+package agentmanager;
 
-import agentmanager.Agent;
-import agentmanager.Message;
 
 public abstract class Task implements Runnable {
 	protected Message message;
