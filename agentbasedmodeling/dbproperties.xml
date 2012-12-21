@@ -6,5 +6,5 @@
 <entry key="PROTOCOL">jdbc:derby</entry>
 <entry key="FRAMEWORK">embedded</entry>
 <entry key="CREATE">true</entry>
-<entry key="LOCATION">jdbc:derby://localhost:1527/:derbyDB</entry>
+<entry key="LOCATION">jdbc:derby://localhost:1527/derbyDB</entry>
 </properties>
